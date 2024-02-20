@@ -26,28 +26,25 @@ class SocialNetwork:
             result = result + "\n" + f"{user}"
         return result
 
-    def sign_in(self, username, password):
+    def log_in(self, username, password):
         """sign in a user with the given username and password. """
-        for signed_user in self.users:
-            if signed_user.get_username() == username and signed_user.get_password() == password:
-                if signed_user not in self.connected_users:
-                    self.connected_users.append(signed_user)
-                    signed_user.set_is_connected(True)
-                    print(f"{signed_user.get_username()} connected")
+        for user in self.users:
+            if user.get_username() == username and user.get_password() == password:
+                if user not in self.connected_users:
+                    self.connected_users.append(user)
+                    user.set_is_connected(True)
+                    print(f"{user.get_username()} connected")
 
-    def sign_out(self, username):
+    def log_out(self, username):
         """sign out a user with the given username."""
-        for connected_user in self.connected_users:
-            if connected_user.get_username() == username:
-                self.connected_users.remove(connected_user)
-                connected_user.set_is_connected(False)
-                print(f"{connected_user.get_username()} disconnected")
+        for user in self.connected_users:
+            if user.get_username() == username:
+                self.connected_users.remove(user)
+                user.set_is_connected(False)
+                print(f"{user.get_username()} disconnected")
 
     def sign_up(self, username, password):
-        """
-         Registers a new user with the given username and password, logs them in, and returns the user object.
-         Returns:User: The newly registered user object.
-         """
+        """Registers a new user with the given username and password, logs them in, and returns the user object."""
         for signed_user in self.users:
             if signed_user.get_username() == username:
                 pass
