@@ -78,8 +78,8 @@ def main():
     print()
 
     # Using log_in & log_out
-    network.sign_out("Charlie")
-    network.sign_in("Charlie", "pass3")
+    network.log_out("Charlie")
+    network.log_in("Charlie", "pass3")
     print()
 
     # User printing
