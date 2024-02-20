@@ -168,7 +168,7 @@ class User(Observer):
             pass
         if user == self:
             return None
-        user.add_follower(self)
+        user.add(self)
         print(f"{self.get_username()} started following {user.get_username()}")
 
     def unfollow(self, user):
@@ -176,7 +176,7 @@ class User(Observer):
         if not self.is_connected:
             pass
         if self in user.get_followers():
-            user.remove_follower(self)
+            user.remove(self)
             print(f"{self.username} unfollowed {user.get_username()}")
 
     def __str__(self):
@@ -189,11 +189,13 @@ class User(Observer):
         for notification in self.notifications:
             print(notification)
 
-    def add_follower(self, observer: 'Observer'):
+    def add(self, observer: 'Observer'):
+        """ Adds an observer to the list of followers if it's not already present. """
         if observer not in self.followers:
             self.followers.append(observer)
 
-    def remove_follower(self, observer: 'Observer'):
+    def remove(self, observer: 'Observer'):
+        """Removes an observer from the list of followers if it's present.  """
         if observer in self.followers:
             self.followers.remove(observer)
 
