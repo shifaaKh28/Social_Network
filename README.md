@@ -1,4 +1,4 @@
-Abstract
+
 This assignment involves the design and implementation of a social network simulation using object-oriented programming principles in Python.
 The system consists of various classes, including User, Observer, and Post, which interact to create a functional social media platform. 
 The User class allows for user registration, login, and interaction through posts, likes, and comments.
